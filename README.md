@@ -3,11 +3,6 @@
 ## Description
 In development!
 
-## Autors
-
-### GameDesigner - Hyeshka
-### Programmer - J O S E P H
-
 ## 🔧 Patch Notes
 
 ### **v0.0.1** (24 ноября 2024)
@@ -26,3 +21,8 @@ In development!
 ## 🚀 Как установить
 Справа вкладка realese, находишь архив с игрой, качаешь, распаковываешь, заходишь в папку, жмяк exe file; 
 SourceCode.zip не качай
+
+## Autors
+
+### GameDesigner - Hyeshka
+### Programmer - J O S E P H
