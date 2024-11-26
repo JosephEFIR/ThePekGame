@@ -1,6 +1,6 @@
 # ThePekGame
 
-## Description
+## Описание
 In development!
 
 ## 🔧 Патч нота
