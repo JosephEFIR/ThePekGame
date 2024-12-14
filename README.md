@@ -22,5 +22,5 @@ SourceCode.zip не качай
 
 ## Авторы
 
-### GameDesigner - Hyeshka
+### GameDesigner - HYeshka
 ### Programmer - J O S E P H
