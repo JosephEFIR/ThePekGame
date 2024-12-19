@@ -8,13 +8,6 @@ namespace Project.Scripts
     {
         [SerializeField] private UIManager uiManager;
         [SerializeField] private GameObject player;
-        private Animator _animator;
-
-        private void Awake()
-        {
-            _animator = GetComponent<Animator>();
-        }
-
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))

@@ -20,7 +20,7 @@ namespace Fragsurf.Movement {
 
         [Header("Physics Settings")]
         public Vector3 colliderSize = new Vector3 (1f, 2f, 1f);
-        [HideInInspector] public ColliderType collisionType { get { return ColliderType.Box; } } // Capsule doesn't work anymore; I'll have to figure out why some other time, sorry.
+        public ColliderType collisionType { get { return ColliderType.Box; } } // Capsule doesn't work anymore; I'll have to figure out why some other time, sorry.
         public float weight = 75f;
         public float rigidbodyPushForce = 2f;
         public bool solidCollider = false;
