@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de60262f6a1d4e6ea84b03c6d85773f4, type: 3}
+  m_Name: UnitAudioConfig
+  m_EditorClassIdentifier: 
+  walk: {fileID: 8300000, guid: acd43efade8862942b04e5f36395a9e9, type: 3}

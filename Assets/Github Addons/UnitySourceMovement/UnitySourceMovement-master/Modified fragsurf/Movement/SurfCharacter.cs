@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Project.Scripts.Configs;
+using Project.Scripts.Player;
 using UnityEngine.Rendering;
 
 namespace Fragsurf.Movement {
@@ -17,6 +19,9 @@ namespace Fragsurf.Movement {
         }
 
         ///// Fields /////
+        [Header("Audio Config")]
+        [SerializeField] private UnitAudioConfig unitAudioConfig;
+        private AudioSource _audioSource;
 
         [Header("Physics Settings")]
         public Vector3 colliderSize = new Vector3 (1f, 2f, 1f);
@@ -88,6 +93,8 @@ namespace Fragsurf.Movement {
         public Vector3 right { get { return viewTransform.right; } }
         public Vector3 up { get { return viewTransform.up; } }
 
+        private Vector3 lastPosition;
+
         Vector3 prevPosition;
 
         ///// Methods /////
@@ -98,22 +105,25 @@ namespace Fragsurf.Movement {
 			Gizmos.DrawWireCube( transform.position, colliderSize );
 		}
 		
-        private void Awake () {
-            
+        private void Awake ()
+        {
+            _audioSource = GetComponent<AudioSource> ();
             _controller.playerTransform = playerRotationTransform;
             
             if (viewTransform != null) {
 
                 _controller.camera = viewTransform;
                 _controller.cameraYPos = viewTransform.localPosition.y;
-
             }
 
         }
 
-        private void Start () {
-            
+        private void Start ()
+        {
+            _audioSource.clip = unitAudioConfig.Walk;
             _colliderObject = new GameObject ("PlayerCollider");
+            lastPosition = transform.position; // Запоминаем начальную позицию
+            
             _colliderObject.layer = gameObject.layer;
             _colliderObject.transform.SetParent (transform);
             _colliderObject.transform.rotation = Quaternion.identity;
@@ -216,8 +226,8 @@ namespace Fragsurf.Movement {
 
         }
 
-        private void Update () {
-
+        private void Update ()
+        {
             _colliderObject.transform.rotation = Quaternion.identity;
 
 
@@ -262,23 +272,8 @@ namespace Fragsurf.Movement {
             _colliderObject.transform.rotation = Quaternion.identity;
 
         }
-        
-        private void UpdateTestBinds () {
-
-            if (Input.GetKeyDown (KeyCode.Backspace))
-                ResetPosition ();
-
-        }
-
-        private void ResetPosition () {
-            
-            moveData.velocity = Vector3.zero;
-            moveData.origin = _startPosition;
-
-        }
-
-        private void UpdateMoveData () {
-            
+        private void UpdateMoveData () 
+        {
             _moveData.verticalAxis = Input.GetAxisRaw ("Vertical");
             _moveData.horizontalAxis = Input.GetAxisRaw ("Horizontal");
 
@@ -317,6 +312,28 @@ namespace Fragsurf.Movement {
                 _moveData.wishJump = false;
             
             _moveData.viewAngles = _angles;
+
+            if (!_moveData.wishJump)
+            {
+                float distanceMoved = Vector3.Distance(transform.position, lastPosition);
+                float speed = distanceMoved / Time.deltaTime; // Скорость = расстояние / время
+            
+                lastPosition = transform.position;
+
+                // Обновляем последнюю позицию
+                lastPosition = transform.position;
+                _audioSource.pitch = Mathf.Lerp(0.5F, 1.5F, speed);
+            
+                if (speed > 0.1F && !_audioSource.isPlaying)
+                {
+                    _audioSource.Play();
+                }
+
+                if (speed <= 0.1F && _audioSource.isPlaying)
+                {
+                    _audioSource.Stop();
+                }
+            }
 
         }
 
