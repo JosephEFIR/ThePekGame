@@ -9,7 +9,7 @@ using Zenject;
 
 namespace Project.Scripts.Units
 {
-    public class Unit : MonoBehaviour
+    public abstract class Unit : MonoBehaviour
     {
         [Inject] public readonly WaypointsContainer WaypointsContainer;
         [SerializeField] private UnitAudioConfig audioConfig;
@@ -25,10 +25,8 @@ namespace Project.Scripts.Units
 
         [HideInInspector]
         public ReactiveProperty<float> Distance = new();
-        
-        private CompositeDisposable _disposable = new();
-        
-        private ViewAngle _viewAngle;
+        protected CompositeDisposable _disposable = new();
+        protected ViewAngle _viewAngle;
         
         private void Awake()
         {
@@ -38,21 +36,10 @@ namespace Project.Scripts.Units
             _viewAngle = GetComponentInChildren<ViewAngle>();
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             _audioSource.clip = audioConfig.Walk; //TODO IS TEST
-            ChangeState(new FindWayState(this));
-            _viewAngle.PlayerDetected.Subscribe(v =>
-            {
-                if (v)
-                {
-                    ChangeState(new TalkState(this));
-                }
-                else
-                {
-                    ChangeState(new FindWayState(this));
-                }
-            }).AddTo(_disposable);
+            Target = transform;
         }
 
         private void Update()

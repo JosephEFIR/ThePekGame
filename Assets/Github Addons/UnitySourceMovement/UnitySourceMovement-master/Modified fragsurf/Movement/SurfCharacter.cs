@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using Project.Scripts.Configs;
-using Project.Scripts.Player;
-using UnityEngine.Rendering;
 
 namespace Fragsurf.Movement {
 
@@ -159,17 +156,17 @@ namespace Fragsurf.Movement {
                 GameObject.Destroy (_collider);
 
             // rigidbody is required to collide with triggers
-            rb = gameObject.GetComponent<Rigidbody> ();
-            if (rb == null)
-                rb = gameObject.AddComponent<Rigidbody> ();
-
-            allowCrouch = crouchingEnabled;
-
-            rb.isKinematic = true;
-            rb.useGravity = false;
-            rb.angularDrag = 0f;
-            rb.drag = 0f;
-            rb.mass = weight;
+            // rb = gameObject.GetComponent<Rigidbody> ();
+            // if (rb == null)
+            //     rb = gameObject.AddComponent<Rigidbody> ();
+            //
+            // allowCrouch = crouchingEnabled;
+            //
+            // rb.isKinematic = true;
+            // rb.useGravity = false;
+            // rb.angularDrag = 0f;
+            // rb.drag = 0f;
+            // rb.mass = weight;
 
 
             switch (collisionType) {
