@@ -97,11 +97,11 @@ namespace AtomicAssembly.GeneratedCommands
 
         // Generate JSON file
         string json = JsonUtility.ToJson(new CommandInfoList { Commands = combinedList }, true);
-        File.WriteAllText("Assets/Atomic Console/Resources/AtomicCommandList.json", json);
+        File.WriteAllText("Assets/AssetStore/Atomic Console/Resources/AtomicCommandList.json", json);
 
 
 
-        string path = "Assets/Atomic Console/Scripts/AtomicCommands.cs";
+        string path = "Assets/AssetStore/Atomic Console/Scripts/AtomicCommands.cs";
 
         // Delete the existing file if it exists
         if (File.Exists(path))

@@ -97,6 +97,13 @@
             "TypeField": "Bool",
             "Locked": false,
             "StaticMethod": true
+        },
+        {
+            "Name": "Test.SetLesson",
+            "Description": "BRUH is a test",
+            "TypeField": "Bool",
+            "Locked": false,
+            "StaticMethod": false
         }
     ]
 }

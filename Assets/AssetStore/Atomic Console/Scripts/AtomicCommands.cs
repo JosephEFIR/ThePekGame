@@ -20,7 +20,8 @@ namespace AtomicAssembly.GeneratedCommands
         typeof(AtomicConsole.Engine.AtomicConsoleEngine).GetMethod("VSync"),
         typeof(AtomicConsole.Engine.AtomicConsoleEngine).GetMethod("TimeScale"),
         typeof(AtomicConsole.Engine.AtomicConsoleEngine).GetMethod("FrameRate"),
-        typeof(AtomicConsole.Engine.AtomicConsoleEngine).GetMethod("FullScreen")
+        typeof(AtomicConsole.Engine.AtomicConsoleEngine).GetMethod("FullScreen"),
+        typeof(AtomicConsole.Engine.AtomicConsoleEngine).GetMethod("TestBruh")
         };
 
         public static List<FieldInfo> setFields = new List<FieldInfo>

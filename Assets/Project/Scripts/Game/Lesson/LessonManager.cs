@@ -1,4 +1,7 @@
 ﻿using System;
+using AtomicAssembly.GeneratedCommands;
+using AtomicConsole;
+using AtomicConsole.debug;
 using Cysharp.Threading.Tasks;
 using Project.Scripts.Game.Root;
 using UniRx;
@@ -23,7 +26,7 @@ namespace Project.Scripts.Game.Lesson
                 if (v <= 0) _gameManager.PlayerSkipLesson.Value = true;
                 else _gameManager.PlayerSkipLesson.Value = false;
             }).AddTo(_disposable);
-
+            
             SetLesson(5 * 60);
         }
         
@@ -32,9 +35,11 @@ namespace Project.Scripts.Game.Lesson
             CheelTimer(seconds).Forget();
         }
         
+        [AtomicCommand("Test", "SetLesson", "Создать урок")]
         public void SetLesson(int seconds)
         {
             LessonTimer(seconds).Forget();
+            AtomicDebug.Command("Lesson is created");
         }
         
         // Асинхронный метод для запуска таймера

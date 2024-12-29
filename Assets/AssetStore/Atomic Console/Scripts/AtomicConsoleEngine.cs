@@ -14,7 +14,9 @@ using AtomicConsole.Skin.editor;
 using AtomicAssembly.GeneratedCommands;
 using AtomicAssembly;
 using System.Net;
+using Project.Scripts.Game.Lesson;
 using Unity.VisualScripting;
+using Zenject;
 
 namespace AtomicConsole.Engine
 {
@@ -2655,6 +2657,11 @@ namespace AtomicConsole.Engine
         AtomicDebug.Command("Full screen mode is set to: " + isFullScreen);
     }
 
+    [AtomicCommand("TestBruh","BruhScreen", "Set the game to full screen or windowed mode")]
+    public static void TestBruh()
+    {
+        AtomicDebug.Command("Test bruh");
+    }
 }
 
 }
