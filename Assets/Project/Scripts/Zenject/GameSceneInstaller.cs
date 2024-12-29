@@ -10,11 +10,12 @@ namespace Project.Scripts.Zenject
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<WaypointsContainer>().FromComponentsInHierarchy().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<PlayerController>().FromComponentsInHierarchy().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<WaypointsContainer>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerController>().FromComponentInHierarchy().AsSingle().NonLazy();
             
             Container.BindInterfacesAndSelfTo<GameManager>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LessonManager>().AsSingle().NonLazy();
+            
         }
     }
 }

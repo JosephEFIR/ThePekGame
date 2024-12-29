@@ -23,6 +23,8 @@ namespace Project.Scripts.Game.Lesson
                 if (v <= 0) _gameManager.PlayerSkipLesson.Value = true;
                 else _gameManager.PlayerSkipLesson.Value = false;
             }).AddTo(_disposable);
+
+            SetLesson(5 * 60);
         }
         
         public void SetCheelTime(int seconds)
