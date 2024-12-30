@@ -89,7 +89,7 @@ Material:
     - _Emission_Color: {r: 6.0235295, g: 6.0235295, b: 6.0235295, a: 0}
     - _Green_Area_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Red_Area_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _UV_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UV_Tiling: {r: 5, g: 5, b: 0, a: 0}
     - _White_Area_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2397317640605346468
