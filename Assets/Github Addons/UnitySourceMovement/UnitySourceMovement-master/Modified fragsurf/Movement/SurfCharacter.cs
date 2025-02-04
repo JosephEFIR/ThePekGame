@@ -183,19 +183,6 @@ namespace Fragsurf.Movement {
 
                 break;
 
-                // Capsule collider
-                case ColliderType.Capsule:
-
-                _collider = _colliderObject.AddComponent<CapsuleCollider> ();
-
-                var capc = (CapsuleCollider)_collider;
-                capc.height = colliderSize.y;
-                capc.radius = colliderSize.x / 2f;
-
-                defaultHeight = capc.height;
-
-                break;
-
             }
 
             _moveData.slopeLimit = movementConfig.slopeLimit;
